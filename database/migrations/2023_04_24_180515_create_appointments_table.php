@@ -17,14 +17,16 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
+            $table->string('gender');
             $table->bigInteger('Hospital_id')->unsigned()->defualt(1);
             $table->foreign('Hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
-            $table->bigInteger('doctor_id')->unsigned();
-            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+
             $table->bigInteger('patient_id')->unsigned();
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
-            // $table->time('date');
-            $table->string('gender');
+            $table->time('date');
+              // $table->bigInteger('doctor_id')->unsigned();
+            // $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+
             $table->timestamps();
         });
 

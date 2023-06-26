@@ -24,6 +24,8 @@ class Patient extends Authenticatable implements JWTSubject
         'password',
         'phone',
         'gender',
+        // 'MedicalRecord_id'
+        // ,
 
     ];
 
@@ -68,4 +70,3 @@ class Patient extends Authenticatable implements JWTSubject
         return [];
     }
 }
-

@@ -15,6 +15,13 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
+// $app->register(Fruitcake\Cors\CorsServiceProvider::class);
+// $app->configure('cors');
+
+// $app->middleware([
+//     // ...
+//     Fruitcake\Cors\HandleCors::class,
+// ]);
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces

@@ -182,8 +182,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-    Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-        
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -196,7 +196,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
     ],
 
     /*
@@ -212,6 +211,12 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'TrustProxies' => Fideloper\Proxy\TrustProxies::class,
     ])->toArray(),
+
+    // 'aliases' => [
+    //     // ...
+    //     // 'TrustProxies' => Fideloper\Proxy\TrustProxies::class,
+    // ],
 
 ];

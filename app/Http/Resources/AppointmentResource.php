@@ -18,13 +18,13 @@ class AppointmentResource extends JsonResource
         return [
             // 'xx'=>$this->id,
             'id'=>$this->id,
-             'name'=>$this->name,
-             'phone'=>$this->phone,
-            //  'date'=>$this->date,
-            // 'doctor_id'=>$this->doctor_id,
-            // 'hospital_id'=>$this->hospital_id,
-            // 'patient_id'=>$this->patient_id,
-             'gender'=>$this->gender
+            'name'=>$this->name,
+            'phone'=>$this->phone,
+            'gender'=>$this->gender,
+            'date'=>$this->date,
+            'hospital_id'=>$this->hospital_id,
+            'patient_id'=>$this->patient_id,
         ];
     }
 }
+// 'doctor_id'=>$this->doctor_id,

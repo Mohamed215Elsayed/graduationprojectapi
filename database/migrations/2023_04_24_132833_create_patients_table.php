@@ -20,6 +20,11 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone');
             $table->string('gender');
+            // MedicalRecord
+            // $table->bigInteger('MedicalRecord_id')->unsigned();
+            // $table->foreign('MedicalRecord_id')->references('id')->on('medical_records')->onDelete('cascade');
+            // $table->bigInteger('MedicalRecord_id')->unsigned();
+            // $table->foreign('MedicalRecord_id')->references('id')->on('medical_records')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

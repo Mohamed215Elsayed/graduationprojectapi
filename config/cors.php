@@ -31,12 +31,68 @@ return [
 
     // 'supports_credentials' => false,
 
+    // 'paths' => ['api/*'],
+    // 'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE'],
+    // 'allowed_origins' => ['http://localhost:3000'], // Replace with your frontend URL
+    // 'allowed_origins_patterns' => [],
+    // 'allowed_headers' => ['Content-Type', 'Authorization'],
+    // 'exposed_headers' => [],
+    // 'max_age' => 0,
+    // 'supports_credentials' => true,
+
+
+
+
+    // 'paths' => ['api/*'],
+    // 'allowed_methods' => ['POST'],
+    // 'allowed_origins' => ['http://localhost:3000'], // Replace with the origin of your frontend app
+    // 'allowed_headers' => ['Content-Type'],
+    // 'exposed_headers' => [],
+    // 'max_age' => 0,
+    // 'supports_credentials' => true,
+
+
+
+    // 'paths' => ['api/*', 'sanctum/csrf-cookie'],
+
+    // 'allowed_methods' => ['*'],
+
+    // 'allowed_origins' => ['*'],
+
+    // 'allowed_origins_patterns' => [],
+
+    // 'allowed_headers' => ['*'],
+
+    // 'exposed_headers' => [],
+
+    // 'max_age' => 0,
+
+    // 'supports_credentials' => false,
+
+
+
+    // 'paths' => [],
     'paths' => ['api/*'],
-    'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE'],
-    'allowed_origins' => ['http://localhost:3000'], // Replace with your frontend URL
+
+
+    'allowed_methods' => ['*'],
+
+
+    'allowed_origins' => ['*'],
+
+
     'allowed_origins_patterns' => [],
-    'allowed_headers' => ['Content-Type', 'Authorization'],
+
+
+    'allowed_headers' => ['*'],
+
     'exposed_headers' => [],
+
+
     'max_age' => 0,
-    'supports_credentials' => false,
+
+
+    'supports_credentials' => true,
+
+
 ];

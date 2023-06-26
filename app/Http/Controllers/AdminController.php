@@ -4,22 +4,25 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+// use DateTime;//
+// use DateInterval;
+// use \PrettyTable\PrettyTable;
 
 class AdminController extends Controller
 {
     //
     public function adminregister(REQUEST $request){
-      $admin=Admin::create([
-        'name'=>$request->name,
-        'email'=>$request->email,
-        'password'=>Hash::make($request->password),
-      ]);
-      if($admin){
-        return response()->json([$admin,'status'=>true]);
-      }
-      else{
+        $admin=Admin::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>Hash::make($request->password),
+            ]);
+        if($admin){
+            return response()->json([$admin,'status'=>true]);
+        }
+        else{
         return response()->json(['status'=>false]);
-      }
+        }
     }
 
     // public function adminlog(REQUEST $request){
@@ -77,5 +80,6 @@ class AdminController extends Controller
 
         return response()->json(['message' => 'Successfully logged out']);
     }
-}
 
+
+}
