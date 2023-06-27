@@ -60,6 +60,11 @@ return [
             'driver' => 'jwt',
             'provider' => 'admins',
         ],
+
+        'hospital_api' => [
+            'driver' => 'jwt',
+            'provider' => 'hospitals',
+        ],
     ],
 
     /*
@@ -94,6 +99,12 @@ return [
         'patients' => [
             'driver' => 'eloquent',
             'model' => App\Models\Patient::class,
+
+        ],
+
+        'hospitals' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Hospital::class,
 
         ],
 

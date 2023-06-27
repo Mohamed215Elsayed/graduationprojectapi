@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DoctorController;
@@ -24,7 +23,6 @@ use App\Http\Controllers\MedicalReportController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 //doctor routes
 Route::post('doctorregister',[DoctorController::class,'doctorregister'])->name('doctorregister');
 Route::post('doctorlog', [DoctorController::class,'doctorlog'])->name('doctorlog');
@@ -34,9 +32,7 @@ Route::group([
     Route::post('doctorme',[DoctorController::class,'doctorme'])->name('doctorme');
     Route::post('doctorlogout',[DoctorController::class,'doctorlogout'])->name('doctorlogout');
 });
-
-
-
+//#########################################################
 //patient routes
 Route::post('patientregister',[PatientController::class,'patientregister'])->name('patientregister');
 Route::post('patientlog', [PatientController::class,'patientlog'])->name('patientlog');
@@ -49,7 +45,7 @@ Route::group([
     Route::post('patientme',[PatientController::class,'patientme'])->name('patientme');
     Route::post('patientlogout',[PatientController::class,'patientlogout'])->name('patientlogout');
 });
-
+//#########################################################
 //admin route
 Route::post('adminregister',[AdminController::class,'adminregister'])->name('adminregister');
 Route::post('adminlog', [AdminController::class,'adminlog'])->name('adminlog');
@@ -89,13 +85,24 @@ Route::post('/medicalreports',[MedicalReportController::class,'store']);
 Route::post('/medicalreports/{id}',[MedicalReportController::class,'update']);
 Route::post('/medicalreport/{id}',[MedicalReportController::class,'destroy']);
 });
+//#############################################################
+
+
 ///////////////////////////////////////////////////////////////////////
 //hospital routes
 Route::get('/hospitals',[HospitalController::class,'index']);
 Route::get('/hospitals/{id}',[HospitalController::class,'show']);
-Route::post('/hospitals',[HospitalController::class,'store']);
-// Route::post('/hospitals/{id}',[HospitalController::class,'update']);
+Route::post('/hospitals/{id}',[HospitalController::class,'update']);
 Route::post('/hospital/{id}',[HospitalController::class,'destroy']);
+            /***********/
+Route::post('/hospitals',[HospitalController::class,'store']);
+Route::post('hospitallog', [HospitalController::class,'hospitallog'])->name('hospitallog');
+Route::group([
+    'middleware' => 'hospital:hospital_api',
+], function () {
+    Route::post('hospitalme',[HospitalController::class,'hospitalme'])->name('hospitalme');
+    Route::post('hospitallogout',[HospitalController::class,'hospitallogout'])->name('hospitallogout');
+});
 ///////////////////////////////////////////////////////////////////////
 //appointment route
 Route::get('/appointments',[AppointmentController::class,'index']);
