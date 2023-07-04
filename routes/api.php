@@ -20,8 +20,10 @@ use App\Http\Controllers\MedicalReportController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+        return $request->user();
 });
 //doctor routes
 Route::post('doctorregister',[DoctorController::class,'doctorregister'])->name('doctorregister');
@@ -32,7 +34,17 @@ Route::group([
     Route::post('doctorme',[DoctorController::class,'doctorme'])->name('doctorme');
     Route::post('doctorlogout',[DoctorController::class,'doctorlogout'])->name('doctorlogout');
 });
-//#########################################################
+// ******************
+// Route::group([/*'prefix' => 'doctor',*/'namespace'=>'doctor'],function (){
+//     Route::post('doctorregister',[DoctorController::class,'doctorregister'])->name('doctorregister');
+//     Route::post('doctorlog', [DoctorController::class,'doctorlog'])->name('doctorlog');
+// });
+//     Route::group(['prefix' => 'doctor' ,'middleware' => 'auth.guard:doctor_api'],function (){
+//         Route::post('doctorme',[DoctorController::class,'doctorme'])->name('doctorme');
+//         Route::post('doctorlogout',[DoctorController::class,'doctorlogout'])->name('doctorlogout');
+
+//     });
+// //#########################################################
 //patient routes
 Route::post('patientregister',[PatientController::class,'patientregister'])->name('patientregister');
 Route::post('patientlog', [PatientController::class,'patientlog'])->name('patientlog');
@@ -50,11 +62,14 @@ Route::group([
 Route::post('adminregister',[AdminController::class,'adminregister'])->name('adminregister');
 Route::post('adminlog', [AdminController::class,'adminlog'])->name('adminlog');
 Route::group([
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'admin:admin_api']]
-//     [
-//     'middleware' => 'admin:admin_api',
-// ]
+    //     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'admin:admin_api']]
+    // [
+    'middleware' => 'admin:admin_api',
+]
 , function () {
+    // Route::group([
+    //     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'admin:admin_api', 'auth', 'role:admin']
+    // ], function () {
     Route::post('adminme',[AdminController::class,'adminme'])->name('adminme');
     Route::post('adminlogout',[AdminController::class,'adminlogout'])->name('adminlogout');
         //hospital routes
@@ -107,8 +122,14 @@ Route::group([
 //appointment route
 Route::get('/appointments',[AppointmentController::class,'index']);
 Route::get('/appointment/{id}',[AppointmentController::class,'show']);
-Route::post('/appointment',[AppointmentController::class,'store']);
-Route::post('/appointments/{id}',[AppointmentController::class,'update']);
+Route::post('/appointments/{id}',[AppointmentController::class,'update']);//
+Route::get('appointmentsHospital/{hospital_id}',[AppointmentController::class,'getHospitalAppointments']);//1
+
+Route::post('hospital/{hospital_id}/patients','AppointmentController@getHospitalPatients');
+Route::post('/appointment1',[AppointmentController::class,'store']);//
+Route::get('/app/{hospital_id}',[AppointmentController::class,'getHospitalPatientsAppointments']);//
+
+
 Route::post('/appointment/{id}',[AppointmentController::class,'destroy']);
 ///////////////////////////////////////////////////////////////////////
 //medicalrecords route
@@ -128,3 +149,11 @@ Route::post('/medicalreports',[MedicalReportController::class,'store']);
 Route::post('/medicalreports/{id}',[MedicalReportController::class,'update']);
 Route::post('/medicalreport/{id}',[MedicalReportController::class,'destroy']);
 /////////////////////////////////////////////////////////////////////////////////////////
+
+// Route::group(['middleware' => ['auth']], function() {
+
+//     Route::resource('roles','RoleController');
+
+//     Route::resource('users','UserController');
+
+//     });

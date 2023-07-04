@@ -20,47 +20,15 @@ return new class extends Migration
             $table->string('gender');
             $table->bigInteger('Hospital_id')->unsigned()->defualt(1);
             $table->foreign('Hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
-
             $table->bigInteger('patient_id')->unsigned();
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->time('date');
-              // $table->bigInteger('doctor_id')->unsigned();
-            // $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
-
+            // $table->enum('status', ['Scheduled', 'Closed'])->default('Scheduled');//
+            $table->string('status')->default('Scheduled');//
             $table->timestamps();
         });
-
-
-        //name   id  phone patient_id doctor_id  hospital_id gender
-
-
-        //  Schema::create('appointments', function (Blueprint $table) {
-
-        //                 $table->id();
-
-        //                 $table->time('date');
-
-        //                 $table->bigInteger('Hospital_id')->unsigned();
-        //                 $table->foreign('Hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
-
-
-
-
-        //                 $table->bigInteger('patient_id')->unsigned();
-
-
-
-
-
-        //                 $table->bigInteger('doctor_id')->unsigned();
-
-        //                 $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
-
-        //                 $table->timestamps();
-
-        //   });
+        //name gender phone patient_id doctor_id  hospital_id date status
     }
-
     /**
      * Reverse the migrations.
      *

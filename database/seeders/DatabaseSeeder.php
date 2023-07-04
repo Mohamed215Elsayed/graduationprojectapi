@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Http\Models\Medical_Report;
+// use App\Http\Models\Medical_Report;
 
 class DatabaseSeeder extends Seeder
 {

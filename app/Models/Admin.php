@@ -1,17 +1,17 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
 class Admin extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    protected $guard = 'admin_api';
 
     /**
      * The attributes that are mass assignable.
@@ -22,8 +22,9 @@ class Admin extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
+        'is_admin'
     ];
-
+//is_admin,is_doctor,is_patient,is_hospital
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -65,4 +66,3 @@ class Admin extends Authenticatable implements JWTSubject
         return [];
     }
 }
-

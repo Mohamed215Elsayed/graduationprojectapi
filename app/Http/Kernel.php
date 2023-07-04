@@ -22,7 +22,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \Illuminate\Http\Middleware\HandleCors::class,
-        \Fruitcake\Cors\HandleCors::class,
+        // \Fruitcake\Cors\HandleCors::class,
         // \Fideloper\Proxy\TrustProxies::class,
     ];
 
@@ -57,10 +57,6 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'doctor' => \App\Http\Middleware\Authenticatedoctor::class,
-        'patient' => \App\Http\Middleware\Authenticatepatient::class,
-        'admin' => \App\Http\Middleware\Authenticateadmin::class,
-        'hospital' => \App\Http\Middleware\Authenticatehospital::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
@@ -70,5 +66,14 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        'doctor' => \App\Http\Middleware\Authenticatedoctor::class,//
+        'patient' => \App\Http\Middleware\Authenticatepatient::class,//
+        'admin' => \App\Http\Middleware\Authenticateadmin::class,
+        'hospital' => \App\Http\Middleware\Authenticatehospital::class,//
+
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,//
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class, //
+
     ];
 }

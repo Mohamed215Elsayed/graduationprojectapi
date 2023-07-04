@@ -23,9 +23,10 @@ class Doctor extends Authenticatable implements JWTSubject
         'password',
         'phone',
         'gender',
-        'description'
+        'description',
+        'is_doctor'
     ];
-
+//is_admin,is_doctor,is_patient,is_hospital
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -43,6 +44,7 @@ class Doctor extends Authenticatable implements JWTSubject
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_doctor' => 'boolean', // add this line
     ];
 
     // Rest omitted for brevity

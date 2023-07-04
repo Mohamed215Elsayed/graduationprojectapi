@@ -24,10 +24,10 @@ class Patient extends Authenticatable implements JWTSubject
         'password',
         'phone',
         'gender',
-        // 'MedicalRecord_id'
-        // ,
-
+        'is_patient',
+        // 'Hospital_id'
     ];
+     //is_admin,is_doctor,is_patient,is_hospital
 
     /**
      * The attributes that should be hidden for serialization.

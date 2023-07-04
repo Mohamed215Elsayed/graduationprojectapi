@@ -22,8 +22,9 @@ class AppointmentResource extends JsonResource
             'phone'=>$this->phone,
             'gender'=>$this->gender,
             'date'=>$this->date,
-            'hospital_id'=>$this->hospital_id,
+            'Hospital_id'=>$this->Hospital_id,
             'patient_id'=>$this->patient_id,
+            'status'=>$this->status
         ];
     }
 }

@@ -20,14 +20,19 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone');
             $table->string('gender');
+            $table->boolean('is_patient')->default(true);//is_admin,is_doctor,is_patient
+            // $table->bigInteger('Hospital_id')->unsigned();//
+            // $table->foreign('Hospital_id')->references('id')->on('hospitals');
+            $table->rememberToken();
+            $table->timestamps();
+        });
             // MedicalRecord
             // $table->bigInteger('MedicalRecord_id')->unsigned();
             // $table->foreign('MedicalRecord_id')->references('id')->on('medical_records')->onDelete('cascade');
             // $table->bigInteger('MedicalRecord_id')->unsigned();
             // $table->foreign('MedicalRecord_id')->references('id')->on('medical_records')->onDelete('cascade');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+
+
     }
 
     /**

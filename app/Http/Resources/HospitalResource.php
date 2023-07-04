@@ -21,7 +21,9 @@ class HospitalResource extends JsonResource
             'name'=>$this->name,
             'email'=>$this->email,
             'password'=>$this->password,
-            'contactno'=>$this->contactno
+            'contactno'=>$this->contactno,
+            'is_hospital' =>$this->is_hospital
         ];
+         //is_admin,is_doctor,is_patient,is_hospital
     }
 }

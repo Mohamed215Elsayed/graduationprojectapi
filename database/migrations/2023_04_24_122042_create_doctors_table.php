@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('gender');
             $table->string('description');
+            $table->boolean('is_doctor')->default(true);//is_admin,is_doctor
             $table->rememberToken();
             $table->timestamps();
         });

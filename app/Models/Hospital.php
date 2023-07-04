@@ -16,8 +16,10 @@ class Hospital extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
-        'contactno'
+        'contactno',
+        'is_hospital'
     ];
+    //is_admin,is_doctor,is_patient,is_hospital
     protected $hidden = [
         'password',
         'remember_token',

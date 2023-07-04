@@ -6,11 +6,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "fruitcake/laravel-cors": "^3.0",
+        "bensampo/laravel-enum": "^6.3",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "spatie/laravel-permission": "^5.10",
         "tymon/jwt-auth": "^2.0"
     },
     "require-dev": {

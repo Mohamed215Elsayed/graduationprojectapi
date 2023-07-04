@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Middleware;
-
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
-
+use Closure;
+// use Auth;
+use Illuminate\Support\Facades\Auth;
 class Authenticate extends Middleware
 {
     /**
@@ -19,3 +20,5 @@ class Authenticate extends Middleware
         }
     }
 }
+
+// "user", "admin", "doctor","patient","hospital"

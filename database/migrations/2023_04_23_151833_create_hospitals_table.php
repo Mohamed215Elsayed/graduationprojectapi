@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('contactno');
+            $table->boolean('is_hospital')->default(true);
+            //is_admin,is_doctor,is_patient,is_hospital
             $table->timestamps();
         });
     }
